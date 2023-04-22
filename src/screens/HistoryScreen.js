@@ -6,6 +6,7 @@ import { isEmpty } from 'lodash';
 import db from '../data/db';
 import PatientCard from '../../components/PatientCard';
 import sortList from '../data/sortList';
+import theme from '../../style/theme';
 
 export default function HistoryScreen() {
   const [search, setSearch] = useState('');
@@ -76,7 +77,7 @@ export default function HistoryScreen() {
           {/* Sort Button */}
           <View
             style={{
-              paddingTop: 16,
+              paddingVertical: 16,
               flexDirection: 'row',
             }}
           >
@@ -84,14 +85,25 @@ export default function HistoryScreen() {
               visible={sortVisible}
               onDismiss={closeSortMenu}
               style={{ marginTop: -40 }}
+              contentStyle={{ backgroundColor: theme.colors.light }}
               anchor={
-                <Button mode="outlined" onPress={openSortMenu} style={{ marginRight: 8 }}>
+                <Button
+                  mode="outlined"
+                  onPress={openSortMenu}
+                  style={{ marginRight: 8, borderColor: theme.colors.primary }}
+                  labelStyle={{ color: theme.colors.primary }}
+                >
                   Sort
                 </Button>
               }
             >
               {sortList.map((item) => (
-                <Menu.Item onPress={() => onSort(item.value)} title={item.label} key={item.value} />
+                <Menu.Item
+                  onPress={() => onSort(item.value)}
+                  title={item.label}
+                  titleStyle={{ color: theme.colors.text.dark }}
+                  key={item.value}
+                />
               ))}
             </Menu>
           </View>
@@ -132,10 +144,10 @@ const styles = StyleSheet.create({
   },
   inputStyle: {
     fontSize: 16,
-    color: '#292929',
+    color: theme.colors.text.dark,
   },
   inputContainerStyle: {
-    backgroundColor: '#fff',
+    backgroundColor: theme.colors.light,
     height: 50,
   },
   containerStyle: {
@@ -146,6 +158,6 @@ const styles = StyleSheet.create({
     paddingLeft: 8,
   },
   scrollContainer: {
-    paddingVertical: 16,
+    paddingBottom: 16,
   },
 });

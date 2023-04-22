@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, Text } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Button } from 'react-native-paper';
 import Icons from 'react-native-vector-icons/Entypo';
 import SelectDropdown from 'react-native-select-dropdown';
 import { useNavigation } from '@react-navigation/native';
+import { Heading } from '../../components/TextFormat';
 import options from '../data/options';
 
 export default function HomeScreen() {
@@ -34,7 +35,7 @@ export default function HomeScreen() {
     <SafeAreaView edges={['bottom']} style={styles.container}>
       {/* Dropdown */}
       <View>
-        <Text style={styles.label}>Consultation Type:</Text>
+        <Heading layoutStyle={styles.label}>Consultation Type:</Heading>
 
         {/* Dropdown for consultation type */}
         <SelectDropdown
@@ -100,8 +101,6 @@ const styles = StyleSheet.create({
     textAlign: 'left',
   },
   label: {
-    fontSize: 16,
-    fontWeight: 600,
     paddingVertical: 16,
   },
 });

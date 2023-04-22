@@ -6,6 +6,7 @@ import { Button } from 'react-native-paper';
 import db from '../../data/db';
 import { Heading } from '../../../components/TextFormat';
 import DocCard from '../../../components/DocCard';
+import theme from '../../../style/theme';
 
 export default function ConsultScreen() {
   const [initialData, setInitialData] = useState([]);
@@ -67,13 +68,23 @@ export default function ConsultScreen() {
 
   return (
     <View style={styles.container}>
-      <Heading style={{ paddingHorizontal: 16 }}>Consultation type:</Heading>
+      <Heading layoutStyle={{ paddingHorizontal: 16 }}>Consultation type:</Heading>
       {/* Buttons for E-consultation & Physical Consultation */}
       <View style={styles.buttonContainer}>
-        <Button mode={selectEConsult ? 'contained' : 'outlined'} onPress={eConsult}>
+        <Button
+          mode={selectEConsult ? 'contained' : 'outlined'}
+          onPress={eConsult}
+          style={{ borderColor: theme.colors.primary }}
+          labelStyle={{ color: theme.colors.primary }}
+        >
           E-Consultation
         </Button>
-        <Button mode={selectPConsult ? 'contained' : 'outlined'} onPress={() => pConsult()}>
+        <Button
+          mode={selectPConsult ? 'contained' : 'outlined'}
+          onPress={() => pConsult()}
+          style={{ borderColor: theme.colors.primary }}
+          labelStyle={{ color: theme.colors.primary }}
+        >
           P-Consultation
         </Button>
       </View>

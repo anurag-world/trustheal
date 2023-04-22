@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
+import theme from '../style/theme';
 
 function Heading({ children, layoutStyle, style, align }) {
   return (
@@ -17,7 +18,7 @@ const styles = StyleSheet.create({
   heading: {
     fontSize: 16,
     fontWeight: 700,
-    color: '#292929',
+    color: theme.colors.text.header,
   },
 });
 
