@@ -4,6 +4,7 @@ import HistoryScreen from "../src/screens/HistoryScreen";
 
 const Stack = createNativeStackNavigator();
 
+// History Stack Navigation
 export default function HistoryNavigator() {
   return (
     <Stack.Navigator

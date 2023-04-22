@@ -10,15 +10,18 @@ import sortList from "../data/sortList";
 export default function HistoryScreen() {
   const [search, setSearch] = useState("");
   const [data, setData] = useState([]);
-  const [sortVisible, setSortVisible] = useState(false);
+  const [sortVisible, setSortVisible] = useState(false); // Set sort menu visibility
 
+  // Open or Close Menu
   const openSortMenu = () => setSortVisible(true);
   const closeSortMenu = () => setSortVisible(false);
 
+  // Set Initial Data
   useEffect(() => {
     setData(db);
   }, []);
 
+  // Search function
   const onSearch = (val) => {
     const searchFilter = db.filter((item) => item.patientName.includes(val));
     if (!isEmpty(searchFilter)) setData(searchFilter);
@@ -26,6 +29,7 @@ export default function HistoryScreen() {
     setSearch(val);
   };
 
+  // Sort Function
   const onSort = (val) => {
     let sorted;
     switch (val) {
@@ -60,6 +64,7 @@ export default function HistoryScreen() {
     <Provider>
       <View style={styles.container}>
         <View>
+          {/* Search Bar */}
           <SearchBar
             placeholder="Search Here..."
             lightTheme
@@ -73,6 +78,8 @@ export default function HistoryScreen() {
             leftIconContainerStyle={styles.leftIconContainerStyle}
             onClear={() => setSearch("")}
           />
+
+          {/* Sort Button */}
           <View
             style={{
               paddingTop: 16,
@@ -103,6 +110,8 @@ export default function HistoryScreen() {
             </Menu>
           </View>
         </View>
+
+        {/* FlatList to pass data to Patient Card */}
         <FlatList
           data={data}
           contentContainerStyle={styles.scrollContainer}

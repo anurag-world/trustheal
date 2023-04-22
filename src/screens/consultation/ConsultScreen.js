@@ -2,7 +2,6 @@ import React, { useEffect, useLayoutEffect, useState } from "react";
 import { ScrollView, StyleSheet, View } from "react-native";
 import { Heading } from "../../../components/TextFormat";
 import db from "../../data/db";
-import { SafeAreaView } from "react-native-safe-area-context";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { get } from "lodash";
 import { Button } from "react-native-paper";
@@ -17,6 +16,7 @@ export default function ConsultScreen() {
   const route = useRoute();
   const title = get(route.params, "title", "");
 
+  // Setting Initial Data - Use db if All consultation or use filtered data based on title
   useEffect(() => {
     const filterData = () => {
       const refineTitle = (newTitle) => {
@@ -41,6 +41,7 @@ export default function ConsultScreen() {
     } else filterData();
   }, [selectEConsult, selectPConsult, title]);
 
+  // Button funtion to sort e-consultation
   const eConsult = () => {
     setSelectEConsult((prev) => !prev);
     setSelectPConsult(false);
@@ -52,6 +53,7 @@ export default function ConsultScreen() {
     setData(filteredData);
   };
 
+  // Button funtion to sort physical consultation
   const pConsult = () => {
     setSelectPConsult((prev) => !prev);
     setSelectEConsult(false);
@@ -61,6 +63,7 @@ export default function ConsultScreen() {
     setData(filteredData);
   };
 
+  // Set header title
   useLayoutEffect(() => {
     navigation.setOptions({
       headerTitle: title,
@@ -70,6 +73,7 @@ export default function ConsultScreen() {
   return (
     <View style={styles.container}>
       <Heading style={{ paddingHorizontal: 16 }}>Consultation type:</Heading>
+      {/* Buttons for E-consultation & Physical Consultation */}
       <View style={styles.buttonContainer}>
         <Button
           mode={selectEConsult ? "contained" : "outlined"}
@@ -84,6 +88,8 @@ export default function ConsultScreen() {
           P-Consultation
         </Button>
       </View>
+
+      {/* Pass data to Doc Cards */}
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.cardContainer}

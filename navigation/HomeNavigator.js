@@ -8,6 +8,7 @@ import HistoryNavigator from "./HistoryNavigator";
 
 const Tab = createBottomTabNavigator();
 
+// Tab Navigation
 export default function HomeNavigator() {
   return (
     <NavigationContainer>

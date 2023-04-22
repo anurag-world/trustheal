@@ -4,8 +4,8 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { Button } from "react-native-paper";
 import Icons from "react-native-vector-icons/Entypo";
 import SelectDropdown from "react-native-select-dropdown";
-import options from "../data/options";
 import { useNavigation } from "@react-navigation/native";
+import options from "../data/options";
 
 export default function HomeScreen() {
   const [selectedItem, setSelectedItem] = useState({
@@ -14,6 +14,7 @@ export default function HomeScreen() {
 
   const navigation = useNavigation();
 
+  // Navigate to selected consultation type
   const onSelect = (selectedType, index) => {
     if (selectedType === options[0]) {
       setSelectedItem({
@@ -34,6 +35,8 @@ export default function HomeScreen() {
       {/* Dropdown */}
       <View>
         <Text style={styles.label}>Consultation Type:</Text>
+
+        {/* Dropdown for consultation type */}
         <SelectDropdown
           data={options}
           buttonStyle={{

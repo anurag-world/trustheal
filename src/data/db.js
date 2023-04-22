@@ -1,3 +1,4 @@
+// Dummy Data
 const db = [
   {
     consultationId: 41,
