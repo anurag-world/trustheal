@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import { View, StyleSheet, Text } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { Button } from "react-native-paper";
-import Icons from "react-native-vector-icons/Entypo";
-import SelectDropdown from "react-native-select-dropdown";
-import { useNavigation } from "@react-navigation/native";
-import options from "../data/options";
+import React, { useState } from 'react';
+import { View, StyleSheet, Text } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { Button } from 'react-native-paper';
+import Icons from 'react-native-vector-icons/Entypo';
+import SelectDropdown from 'react-native-select-dropdown';
+import { useNavigation } from '@react-navigation/native';
+import options from '../data/options';
 
 export default function HomeScreen() {
   const [selectedItem, setSelectedItem] = useState({
@@ -24,14 +24,14 @@ export default function HomeScreen() {
       setSelectedItem({
         index,
       });
-      navigation.navigate("ConsultScreen", {
+      navigation.navigate('ConsultScreen', {
         title: options[index],
       });
     }
   };
 
   return (
-    <SafeAreaView edges={["bottom"]} style={styles.container}>
+    <SafeAreaView edges={['bottom']} style={styles.container}>
       {/* Dropdown */}
       <View>
         <Text style={styles.label}>Consultation Type:</Text>
@@ -40,25 +40,20 @@ export default function HomeScreen() {
         <SelectDropdown
           data={options}
           buttonStyle={{
-            width: "100%",
+            width: '100%',
             paddingHorizontal: 0,
-            backgroundColor: "#fff",
+            backgroundColor: '#fff',
           }}
           renderCustomizedButtonChild={() => (
             <Button
-              icon={() => (
-                <Icons name="chevron-thin-down" size={20} color="#8E8E8E" />
-              )}
+              // eslint-disable-next-line react/no-unstable-nested-components
+              icon={() => <Icons name="chevron-thin-down" size={20} color="#8E8E8E" />}
               contentStyle={{
-                flexDirection: "row-reverse",
-                justifyContent: "space-between",
+                flexDirection: 'row-reverse',
+                justifyContent: 'space-between',
                 width: 350,
               }}
-              style={[
-                styles.backgroundLight,
-                styles.border,
-                styles.dropdownStyle,
-              ]}
+              style={[styles.backgroundLight, styles.border, styles.dropdownStyle]}
               labelStyle={styles.dropdownLabelStyle}
             >
               {options[selectedItem.index]}
@@ -70,9 +65,9 @@ export default function HomeScreen() {
           dropdownStyle={{
             borderRadius: 4,
             paddingHorizontal: 8,
-            backgroundColor: "#fff",
+            backgroundColor: '#fff',
           }}
-          onSelect={(selectedItem, index) => onSelect(selectedItem, index)}
+          onSelect={(selectedType, index) => onSelect(selectedType, index)}
         />
       </View>
     </SafeAreaView>
@@ -82,27 +77,27 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: '#fff',
     padding: 16,
   },
   backgroundLight: {
-    backgroundColor: "#fff",
+    backgroundColor: '#fff',
   },
   border: {
     borderWidth: 1,
-    borderColor: "#D6D6D6",
+    borderColor: '#D6D6D6',
   },
   dropdownStyle: {
-    alignItems: "flex-start",
+    alignItems: 'flex-start',
     paddingVertical: 4,
   },
   dropdownLabelStyle: {
     fontSize: 14,
-    color: "#292929",
+    color: '#292929',
   },
   rowTextStyle: {
     fontSize: 14,
-    textAlign: "left",
+    textAlign: 'left',
   },
   label: {
     fontSize: 16,

@@ -1,14 +1,7 @@
-import React, { useState } from "react";
-import { View } from "react-native";
-import {
-  Button,
-  Card,
-  Text,
-  Divider,
-  Menu,
-  Provider,
-} from "react-native-paper";
-import optionsList from "../src/data/optionsList";
+import React, { useState } from 'react';
+import { View } from 'react-native';
+import { Button, Card, Text, Divider, Menu, Provider } from 'react-native-paper';
+import optionsList from '../src/data/optionsList';
 
 export default function DocCard({
   imageUrl,
@@ -32,15 +25,15 @@ export default function DocCard({
       <Card style={{ marginBottom: 20, zIndex: -1 }}>
         <Card.Content
           style={{
-            flexDirection: "row",
-            justifyContent: "space-between",
+            flexDirection: 'row',
+            justifyContent: 'space-between',
             paddingBottom: 16,
           }}
         >
           <Card.Content
             style={{
               flexGrow: 1,
-              alignItems: "center",
+              alignItems: 'center',
             }}
           >
             <Text variant="titleLarge">{name}</Text>
@@ -58,17 +51,10 @@ export default function DocCard({
         </Card.Content>
         <Divider horizontalInset bold />
         <Card.Content style={{ paddingTop: 20, flexShrink: 1 }}>
-          {clinicName && (
-            <Text variant="titleMedium">{`Clinic: ${clinicName}`}</Text>
-          )}
-          <Text variant="labelLarge">{`Consultation Type: ${type.replaceAll(
-            "_",
-            " "
-          )}`}</Text>
+          {clinicName && <Text variant="titleMedium">{`Clinic: ${clinicName}`}</Text>}
+          <Text variant="labelLarge">{`Consultation Type: ${type.replaceAll('_', ' ')}`}</Text>
           {/* <Text variant="labelLarge">{`Consultation Status: ${status}`}</Text> */}
-          {address && (
-            <Text variant="bodyMedium">{`Physical Address: ${address}`}</Text>
-          )}
+          {address && <Text variant="bodyMedium">{`Physical Address: ${address}`}</Text>}
           <Text variant="titleMedium" style={{ paddingTop: 16 }}>
             Slot Details:
           </Text>
@@ -79,7 +65,7 @@ export default function DocCard({
         <Card.Actions style={{ padding: 16 }}>
           <View
             style={{
-              flexDirection: "row",
+              flexDirection: 'row',
             }}
           >
             <Menu
@@ -87,11 +73,7 @@ export default function DocCard({
               onDismiss={closeMenu}
               style={{ marginTop: -40, zIndex: 1000 }}
               anchor={
-                <Button
-                  mode="outlined"
-                  onPress={openMenu}
-                  style={{ marginRight: 8 }}
-                >
+                <Button mode="outlined" onPress={openMenu} style={{ marginRight: 8 }}>
                   Options
                 </Button>
               }

@@ -1,6 +1,7 @@
-import { StatusBar } from "expo-status-bar";
-import Navigator from "./navigation/Navigator";
-import HomeNavigator from "./navigation/HomeNavigator";
+/* eslint-disable react/style-prop-object */
+import React from 'react';
+import { StatusBar } from 'expo-status-bar';
+import HomeNavigator from './navigation/HomeNavigator';
 
 export default function App() {
   return (

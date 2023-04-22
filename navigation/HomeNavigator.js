@@ -1,10 +1,11 @@
-import * as React from "react";
-import { Platform } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import Ionicons from "react-native-vector-icons/Ionicons";
-import Navigator from "./Navigator";
-import HistoryNavigator from "./HistoryNavigator";
+/* eslint-disable react/no-unstable-nested-components */
+import * as React from 'react';
+import { Platform } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import Navigator from './Navigator';
+import HistoryNavigator from './HistoryNavigator';
 
 const Tab = createBottomTabNavigator();
 
@@ -17,31 +18,31 @@ export default function HomeNavigator() {
           tabBarIcon: ({ focused, color, size }) => {
             let iconName;
 
-            if (route.name === "Home") {
-              iconName = focused ? "home" : "home-outline";
+            if (route.name === 'Home') {
+              iconName = focused ? 'home' : 'home-outline';
             } else {
-              iconName = focused ? "list" : "list-outline";
+              iconName = focused ? 'list' : 'list-outline';
             }
             return <Ionicons name={iconName} size={size} color={color} />;
           },
-          tabBarLabel: "",
-          tabBarActiveTintColor: "#000",
-          tabBarInactiveTintColor: "#8E8E8E",
+          tabBarLabel: '',
+          tabBarActiveTintColor: '#000',
+          tabBarInactiveTintColor: '#8E8E8E',
           tabBarLabelStyle: { fontSize: 12 },
           tabBarStyle: {
             elevation: 1,
-            shadowColor: "#000",
+            shadowColor: '#000',
             shadowOffset: {
               width: 0,
               height: -5,
             },
             shadowOpacity: 0.12,
             shadowRadius: 10,
-            height: Platform.OS === "ios" ? 92 : 80,
-            paddingBottom: Platform.OS === "ios" ? 32 : 16,
+            height: Platform.OS === 'ios' ? 92 : 80,
+            paddingBottom: Platform.OS === 'ios' ? 32 : 16,
             paddingTop: 12,
           },
-          headerTitleAlign: "center",
+          headerTitleAlign: 'center',
         })}
       >
         <Tab.Screen
@@ -49,7 +50,7 @@ export default function HomeNavigator() {
           component={Navigator}
           options={{
             headerShown: false,
-            tabBarLabel: "Home",
+            tabBarLabel: 'Home',
           }}
         />
 
@@ -58,7 +59,7 @@ export default function HomeNavigator() {
           component={HistoryNavigator}
           options={{
             headerShown: false,
-            tabBarLabel: "History",
+            tabBarLabel: 'History',
           }}
         />
       </Tab.Navigator>

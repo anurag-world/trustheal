@@ -1,7 +1,7 @@
-import React from "react";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import ConsultScreen from "../src/screens/consultation/ConsultScreen";
-import HomeScreen from "../src/screens/HomeScreen";
+import React from 'react';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import ConsultScreen from '../src/screens/consultation/ConsultScreen';
+import HomeScreen from '../src/screens/HomeScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -11,9 +11,9 @@ export default function Navigator() {
     <Stack.Navigator
       screenOptions={{
         headerBackTitleVisible: false,
-        headerTitleAlign: "center",
+        headerTitleAlign: 'center',
         contentStyle: {
-          backgroundColor: "#fff",
+          backgroundColor: '#fff',
         },
       }}
     >
@@ -21,7 +21,7 @@ export default function Navigator() {
         name="HomeScreen"
         component={HomeScreen}
         options={{
-          headerTitle: "Home",
+          headerTitle: 'Home',
           gestureEnabled: false,
         }}
       />
@@ -31,7 +31,7 @@ export default function Navigator() {
         name="ConsultScreen"
         component={ConsultScreen}
         options={{
-          headerTitle: "Upcoming",
+          headerTitle: 'Upcoming',
         }}
       />
     </Stack.Navigator>

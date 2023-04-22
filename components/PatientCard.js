@@ -1,5 +1,5 @@
-import React from "react";
-import { Button, Card, Text, Divider } from "react-native-paper";
+import React from 'react';
+import { Button, Card, Text, Divider } from 'react-native-paper';
 
 export default function PatientCard({
   imageUrl,
@@ -17,15 +17,15 @@ export default function PatientCard({
     <Card style={{ marginBottom: 20 }}>
       <Card.Content
         style={{
-          flexDirection: "row",
-          justifyContent: "space-between",
+          flexDirection: 'row',
+          justifyContent: 'space-between',
           paddingBottom: 16,
         }}
       >
         <Card.Content
           style={{
             flexGrow: 1,
-            alignItems: "center",
+            alignItems: 'center',
           }}
         >
           <Text variant="titleLarge">{name}</Text>
@@ -43,20 +43,11 @@ export default function PatientCard({
       </Card.Content>
       <Divider horizontalInset bold />
       <Card.Content style={{ paddingTop: 20, flexShrink: 1 }}>
-        {patientName && (
-          <Text variant="titleMedium">{`Patient Name: ${patientName}`}</Text>
-        )}
-        {clinicName && (
-          <Text variant="titleMedium">{`Clinic: ${clinicName}`}</Text>
-        )}
-        <Text variant="labelLarge">{`Consultation Type: ${type.replaceAll(
-          "_",
-          " "
-        )}`}</Text>
+        {patientName && <Text variant="titleMedium">{`Patient Name: ${patientName}`}</Text>}
+        {clinicName && <Text variant="titleMedium">{`Clinic: ${clinicName}`}</Text>}
+        <Text variant="labelLarge">{`Consultation Type: ${type.replaceAll('_', ' ')}`}</Text>
         {/* <Text variant="labelLarge">{`Consultation Status: ${status}`}</Text> */}
-        {address && (
-          <Text variant="bodyMedium">{`Physical Address: ${address}`}</Text>
-        )}
+        {address && <Text variant="bodyMedium">{`Physical Address: ${address}`}</Text>}
         <Text variant="titleMedium" style={{ paddingTop: 16 }}>
           Slot Details:
         </Text>

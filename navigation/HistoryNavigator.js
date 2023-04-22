@@ -1,6 +1,6 @@
-import React from "react";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import HistoryScreen from "../src/screens/HistoryScreen";
+import React from 'react';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import HistoryScreen from '../src/screens/HistoryScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -10,9 +10,9 @@ export default function HistoryNavigator() {
     <Stack.Navigator
       screenOptions={{
         headerBackTitleVisible: false,
-        headerTitleAlign: "center",
+        headerTitleAlign: 'center',
         contentStyle: {
-          backgroundColor: "#fff",
+          backgroundColor: '#fff',
         },
       }}
     >
@@ -20,7 +20,7 @@ export default function HistoryNavigator() {
         name="HistoryScreen"
         component={HistoryScreen}
         options={{
-          headerTitle: "History",
+          headerTitle: 'History',
         }}
       />
     </Stack.Navigator>

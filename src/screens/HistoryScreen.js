@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react";
-import { View, StyleSheet, FlatList } from "react-native";
-import { Button, Menu, Provider } from "react-native-paper";
-import { SearchBar } from "@rneui/themed";
-import { isEmpty } from "lodash";
-import db from "../data/db";
-import PatientCard from "../../components/PatientCard";
-import sortList from "../data/sortList";
+import React, { useEffect, useState } from 'react';
+import { View, StyleSheet, FlatList } from 'react-native';
+import { Button, Menu, Provider } from 'react-native-paper';
+import { SearchBar } from '@rneui/themed';
+import { isEmpty } from 'lodash';
+import db from '../data/db';
+import PatientCard from '../../components/PatientCard';
+import sortList from '../data/sortList';
 
 export default function HistoryScreen() {
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState('');
   const [data, setData] = useState([]);
   const [sortVisible, setSortVisible] = useState(false); // Set sort menu visibility
 
@@ -34,14 +34,10 @@ export default function HistoryScreen() {
     let sorted;
     switch (val) {
       case 1:
-        sorted = data.sort((a, b) =>
-          a.patientName.localeCompare(b.patientName)
-        );
+        sorted = data.sort((a, b) => a.patientName.localeCompare(b.patientName));
         break;
       case 2:
-        sorted = data.sort((a, b) =>
-          b.patientName.localeCompare(a.patientName)
-        );
+        sorted = data.sort((a, b) => b.patientName.localeCompare(a.patientName));
         break;
       case 3:
         sorted = data.sort((a, b) => a.slotDate.localeCompare(b.slotDate));
@@ -49,10 +45,8 @@ export default function HistoryScreen() {
       case 4:
         sorted = data.sort((a, b) => b.slotDate.localeCompare(a.slotDate));
         break;
-      case 5:
-        sorted = data.sort((a, b) =>
-          a.slotStartTime.localeCompare(b.slotStartTime)
-        );
+      default:
+        sorted = data.sort((a, b) => a.slotStartTime.localeCompare(b.slotStartTime));
         break;
     }
 
@@ -76,14 +70,14 @@ export default function HistoryScreen() {
             inputContainerStyle={styles.inputContainerStyle}
             containerStyle={styles.containerStyle}
             leftIconContainerStyle={styles.leftIconContainerStyle}
-            onClear={() => setSearch("")}
+            onClear={() => setSearch('')}
           />
 
           {/* Sort Button */}
           <View
             style={{
               paddingTop: 16,
-              flexDirection: "row",
+              flexDirection: 'row',
             }}
           >
             <Menu
@@ -91,21 +85,13 @@ export default function HistoryScreen() {
               onDismiss={closeSortMenu}
               style={{ marginTop: -40 }}
               anchor={
-                <Button
-                  mode="outlined"
-                  onPress={openSortMenu}
-                  style={{ marginRight: 8 }}
-                >
+                <Button mode="outlined" onPress={openSortMenu} style={{ marginRight: 8 }}>
                   Sort
                 </Button>
               }
             >
               {sortList.map((item) => (
-                <Menu.Item
-                  onPress={() => onSort(item.value)}
-                  title={item.label}
-                  key={item.value}
-                />
+                <Menu.Item onPress={() => onSort(item.value)} title={item.label} key={item.value} />
               ))}
             </Menu>
           </View>
@@ -146,10 +132,10 @@ const styles = StyleSheet.create({
   },
   inputStyle: {
     fontSize: 16,
-    color: "#292929",
+    color: '#292929',
   },
   inputContainerStyle: {
-    backgroundColor: "#fff",
+    backgroundColor: '#fff',
     height: 50,
   },
   containerStyle: {
