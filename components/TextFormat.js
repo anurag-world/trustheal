@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import PropTypes from 'prop-types';
 
 function Heading({ children, layoutStyle, style, align }) {
   return (
@@ -9,7 +10,8 @@ function Heading({ children, layoutStyle, style, align }) {
   );
 }
 
-export default Heading;
+// eslint-disable-next-line import/prefer-default-export
+export { Heading };
 
 const styles = StyleSheet.create({
   heading: {
@@ -18,3 +20,17 @@ const styles = StyleSheet.create({
     color: '#292929',
   },
 });
+
+Heading.propTypes = {
+  children: PropTypes.oneOfType([PropTypes.any]),
+  layoutStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+  style: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+  align: PropTypes.string,
+};
+
+Heading.defaultProps = {
+  children: '',
+  layoutStyle: undefined,
+  style: undefined,
+  align: 'auto',
+};

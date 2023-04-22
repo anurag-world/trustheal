@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View } from 'react-native';
+import PropTypes from 'prop-types';
 import { Button, Card, Text, Divider, Menu, Provider } from 'react-native-paper';
 import optionsList from '../src/data/optionsList';
 
@@ -8,7 +9,6 @@ export default function DocCard({
   name,
   speciality,
   type,
-  status,
   date,
   startTime,
   endTime,
@@ -89,3 +89,27 @@ export default function DocCard({
     </Provider>
   );
 }
+
+DocCard.propTypes = {
+  imageUrl: PropTypes.string,
+  name: PropTypes.string,
+  speciality: PropTypes.oneOfType([PropTypes.array]),
+  type: PropTypes.string,
+  date: PropTypes.string,
+  startTime: PropTypes.string,
+  endTime: PropTypes.string,
+  clinicName: PropTypes.string,
+  address: PropTypes.string,
+};
+
+DocCard.defaultProps = {
+  imageUrl: '',
+  name: '',
+  speciality: [],
+  type: '',
+  date: '',
+  startTime: '',
+  endTime: '',
+  clinicName: '',
+  address: '',
+};
