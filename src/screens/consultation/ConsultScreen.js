@@ -68,22 +68,28 @@ export default function ConsultScreen() {
 
   return (
     <View style={styles.container}>
-      <Heading layoutStyle={{ paddingHorizontal: 16 }}>Consultation type:</Heading>
+      <Heading layoutStyle={{ paddingHorizontal: 32 }}>Consultation type:</Heading>
       {/* Buttons for E-consultation & Physical Consultation */}
       <View style={styles.buttonContainer}>
         <Button
           mode={selectEConsult ? 'contained' : 'outlined'}
           onPress={eConsult}
-          style={{ borderColor: theme.colors.primary }}
-          labelStyle={{ color: theme.colors.primary }}
+          style={{
+            backgroundColor: selectEConsult ? theme.colors.primary : theme.colors.light,
+            borderColor: theme.colors.primary,
+          }}
+          labelStyle={{ color: selectEConsult ? theme.colors.light : theme.colors.primary }}
         >
           E-Consultation
         </Button>
         <Button
           mode={selectPConsult ? 'contained' : 'outlined'}
           onPress={() => pConsult()}
-          style={{ borderColor: theme.colors.primary }}
-          labelStyle={{ color: theme.colors.primary }}
+          style={{
+            backgroundColor: selectPConsult ? theme.colors.primary : theme.colors.light,
+            borderColor: theme.colors.primary,
+          }}
+          labelStyle={{ color: selectPConsult ? theme.colors.light : theme.colors.primary }}
         >
           P-Consultation
         </Button>
@@ -114,11 +120,10 @@ export default function ConsultScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingHorizontal: 20,
     paddingTop: 20,
   },
   buttonContainer: {
-    paddingHorizontal: 16,
+    paddingHorizontal: 32,
     paddingVertical: 16,
     flexDirection: 'row',
     justifyContent: 'space-between',

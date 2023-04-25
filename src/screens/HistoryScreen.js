@@ -58,7 +58,7 @@ export default function HistoryScreen() {
   return (
     <Provider>
       <View style={styles.container}>
-        <View>
+        <View style={styles.searchContainer}>
           {/* Search Bar */}
           <SearchBar
             placeholder="Search Here..."
@@ -84,8 +84,9 @@ export default function HistoryScreen() {
             <Menu
               visible={sortVisible}
               onDismiss={closeSortMenu}
-              style={{ marginTop: -40 }}
+              style={{ top: 170 }}
               contentStyle={{ backgroundColor: theme.colors.light }}
+              anchorPosition="bottom"
               anchor={
                 <Button
                   mode="outlined"
@@ -139,8 +140,10 @@ export default function HistoryScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingHorizontal: 16,
     paddingTop: 24,
+  },
+  searchContainer: {
+    paddingHorizontal: 16,
   },
   inputStyle: {
     fontSize: 16,
@@ -158,6 +161,6 @@ const styles = StyleSheet.create({
     paddingLeft: 8,
   },
   scrollContainer: {
-    paddingBottom: 16,
+    paddingVertical: 16,
   },
 });

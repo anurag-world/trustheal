@@ -47,7 +47,6 @@ export default function HomeScreen() {
           }}
           renderCustomizedButtonChild={() => (
             <Button
-              // eslint-disable-next-line react/no-unstable-nested-components
               icon={() => <Icons name="chevron-thin-down" size={20} color="#8E8E8E" />}
               contentStyle={{
                 flexDirection: 'row-reverse',
